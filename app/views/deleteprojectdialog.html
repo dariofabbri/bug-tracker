@@ -1,0 +1,10 @@
+<div class="modal-header">
+	<h3 class="modal-title">Eliminazione progetto</h3>
+</div>
+<div class="modal-body">
+	Si conferma l'eliminazione del progetto {{project.code}}{{project.name ? ' (' + project.name + ')' : ''}}?
+</div>
+<div class="modal-footer">
+	<button class="btn btn-default" ng-click="cancel()">Annulla</button>
+	<button class="btn btn-primary" ng-click="ok()">OK</button>
+</div>

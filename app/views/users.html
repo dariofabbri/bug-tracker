@@ -1,0 +1,29 @@
+<div>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Alias</th>
+				<th>Nome</th>
+				<th>Cognome</th>
+				<th>Email</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in users">
+				<td>{{$index + 1}}</td>
+				<td>{{user.alias}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.surname}}</td>
+				<td>{{user.email}}</td>
+				<td class="text-right">
+					<button ng-click="openEditDialog(user)" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-edit"></span></button>
+					<button ng-click="openDeleteDialog(user)" type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<button ng-click="openEditDialog()" type="button" class="btn btn-primary pull-right">Nuovo utente</button>
+</div>
