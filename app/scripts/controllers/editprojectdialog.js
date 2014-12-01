@@ -10,7 +10,7 @@
 angular.module('bugTrackerApp')
   .controller('EditProjectDialogCtrl', function ($scope, $injector, $modalInstance, project, isNew, projectsFactory) {
 
-		$injector.invoke(function ($controller) { $controller('AlertCtrl', {$scope: $scope}); });
+		$injector.invoke(function ($controller) { $controller('ValidationCtrl', {$scope: $scope}); });
 
 		$scope.isNew = isNew;
 
@@ -21,34 +21,24 @@ angular.module('bugTrackerApp')
 			active: true
 		};
 
-		var resetValidationErrors = function () {
-			$scope.validation = {
-				__isValid: true,
-				code: { cssClass: '', message: '' },
-				name: { cssClass: '', message: '' },
-				description: { cssClass: '', message: '' }
-			};
-		};
-
-		var setValidationError =function (property, message) {
-			$scope.validation[property] = { 
-				cssClass: 'has-error',
-				message: message
-			};
-			$scope.addAlert('danger', message);
-			$scope.validation.__isValid = false;
-		};
-
 		var validate = function() {
 
-			resetValidationErrors();
+			$scope.resetValidationErrors();
 
 			if(!$scope.project.code) {
-				setValidationError('code', 'E\' necessario specificare un codice progetto.');
+				$scope.setValidationError('code', 'E\' necessario specificare un codice progetto.');
+			}
+
+			if($scope.project.code && $scope.project.code.length !== 3) {
+				$scope.setValidationError('code', 'Il codice deve essere lungo tre caratteri.');
 			}
 
 			if($scope.isNew && projectsFactory.get($scope.project.code)) {
-				setValidationError('alias', 'Il codice progetto specificato è già in uso.');
+				$scope.setValidationError('alias', 'Il codice progetto specificato è già in uso.');
+			}
+
+			if(!$scope.project.name) {
+				$scope.setValidationError('name', 'E\' necessario specificare il nome del progetto.');
 			}
 
 			return $scope.validation.__isValid;
@@ -60,6 +50,8 @@ angular.module('bugTrackerApp')
 				return;
 			}
 
+			$scope.project.code = $scope.project.code.toUpperCase();
+
 			projectsFactory.save($scope.project);
 			$modalInstance.close();
 		};
@@ -68,5 +60,5 @@ angular.module('bugTrackerApp')
 			$modalInstance.dismiss('cancel');
 		};
 
-		resetValidationErrors();
+		$scope.resetValidationErrors();
   });
