@@ -14,12 +14,14 @@ angular.module('bugTrackerApp')
 
 		$scope.isNew = isNew;
 
-		$scope.project = project || {
-			code: '',
-			name: '',
-			description: '',
-			active: true
-		};
+		$scope.project = project ?
+			angular.copy(project) : 
+			{
+				code: '',
+				name: '',
+				description: '',
+				active: true
+			};
 
 		var validate = function() {
 

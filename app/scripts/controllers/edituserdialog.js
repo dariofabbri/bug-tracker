@@ -14,13 +14,15 @@ angular.module('bugTrackerApp')
 
 		$scope.isNew = isNew;
 
-		$scope.user = user || {
-			alias: '',
-			name: '',
-			surname: '',
-			email: '',
-			active: true
-		};
+		$scope.user = user ? 
+			angular.copy(user) : 
+			{
+				alias: '',
+				name: '',
+				surname: '',
+				email: '',
+				active: true
+			};
 
 		var validate = function () {
 

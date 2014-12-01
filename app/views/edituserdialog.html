@@ -1,5 +1,5 @@
 <div class="modal-header">
-	<h3 class="modal-title">Dettaglio utente</h3>
+	<h3 class="modal-title">{{isNew ? 'Nuovo utente' : 'Dettaglio utente'}}</h3>
 </div>
 <div class="modal-body">
 	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert(alert.id)">{{alert.msg}}</alert>
