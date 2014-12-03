@@ -54,7 +54,7 @@ angular.module('bugTrackerApp')
 						matches = matches && bug.user && bug.user.alias && bug.user.alias.toLowerCase().indexOf(user.toLowerCase()) !== -1;
 					}
 
-					return bug.active;
+					return matches;
 				});
       },
 
