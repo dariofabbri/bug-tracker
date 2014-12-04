@@ -8,9 +8,12 @@
  * Controller of the bugTrackerApp
  */
 angular.module('bugTrackerApp')
-  .controller('EditBugDialogCtrl', function ($scope, $injector, $modalInstance, bug, isNew, bugsFactory) {
+  .controller('EditBugDialogCtrl', function ($scope, $injector, $modalInstance, bug, isNew, bugsFactory, usersFactory, projectsFactory) {
 
 		$injector.invoke(function ($controller) { $controller('ValidationCtrl', {$scope: $scope}); });
+
+    $scope.users = usersFactory.list();
+    $scope.projects = projectsFactory.list();
 
 		$scope.isNew = isNew;
 

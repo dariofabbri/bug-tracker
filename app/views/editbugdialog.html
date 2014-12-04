@@ -9,17 +9,24 @@
 			<input type="text" class="form-control" id="id" placeholder="ID univoco" ng-model="bug.id" tooltip="{{validation.id.message}}" readonly>
 		</div>
 		<div class="form-group" ng-class="validation.subject.cssClass">
-			<label for="name">Oggetto</label>
-			<input type="text" class="form-control" id="subject" placeholder="Oggetto del bug" ng-model="bug.subject" tooltip="{{validation.subject.message}}">
+			<label for="subject">Oggetto</label>
+			<input type="text" class="form-control" id="subject" placeholder="Oggetto del bug" ng-model="bug.subject" tooltip="{{validation.subject.message}}" autofocus>
 		</div>
 		<div class="form-group" ng-class="validation.description.cssClass">
-			<label for="name">Descrizione</label>
+			<label for="description">Descrizione</label>
 			<input type="text" class="form-control" id="description" placeholder="Descrizione del bug" ng-model="bug.description" tooltip="{{validation.description.message}}">
 		</div>
 		<div class="form-group" ng-class="validation.project.cssClass">
-			<label for="surname">Progetto</label>
-			<input type="text" class="form-control" id="project" placeholder="Progetto" ng-model="bug.project" tooltip="{{validation.project.message}}">
-			<input type="text" ng-model="search.project" typeahead="project as project.name for project in filterProjects(projects, $viewValue) | filter:$viewValue | limitTo:10" class="form-control">
+			<label for="project">Progetto</label>
+			<select class="form-control" id="project" placeholder="Progetto" ng-model="bug.project" ng-options="project.name for project in projects" tooltip="{{validation.project.message}}">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group" ng-class="validation.project.cssClass">
+			<label for="user">Utente</label>
+			<select class="form-control" id="user" placeholder="Utente assegnatario" ng-model="bug.user" ng-options="(user.name + ' ' + user.surname) for user in users" tooltip="{{validation.user.message}}">
+				<option value=""></option>
+			</select>
 		</div>
 	</form>
 </div>
