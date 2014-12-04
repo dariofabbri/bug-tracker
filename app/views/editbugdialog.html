@@ -3,30 +3,61 @@
 </div>
 <div class="modal-body">
 	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert(alert.id)">{{alert.msg}}</alert>
-	<form role="form">
+	<form role="form" class="form-horizontal">
 		<div class="form-group" ng-class="validation.id.cssClass">
-			<label for="id">ID</label>
-			<input type="text" class="form-control" id="id" placeholder="ID univoco" ng-model="bug.id" tooltip="{{validation.id.message}}" readonly>
+			<label for="id" class="col-sm-2">ID</label>
+			<div class="col-sm-10">	
+				<input type="text" class="form-control" id="id" placeholder="ID univoco" ng-model="bug.id" tooltip="{{validation.id.message}}" readonly>
+			</div>
 		</div>
 		<div class="form-group" ng-class="validation.subject.cssClass">
-			<label for="subject">Oggetto</label>
-			<input type="text" class="form-control" id="subject" placeholder="Oggetto del bug" ng-model="bug.subject" tooltip="{{validation.subject.message}}" autofocus>
+			<label for="subject" class="col-sm-2">Oggetto</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="subject" placeholder="Oggetto del bug" ng-model="bug.subject" tooltip="{{validation.subject.message}}" autofocus>
+			</div>
 		</div>
 		<div class="form-group" ng-class="validation.description.cssClass">
-			<label for="description">Descrizione</label>
-			<input type="text" class="form-control" id="description" placeholder="Descrizione del bug" ng-model="bug.description" tooltip="{{validation.description.message}}">
+			<label for="description" class="col-sm-2">Descrizione</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="description" placeholder="Descrizione del bug" ng-model="bug.description" tooltip="{{validation.description.message}}">
+			</div>
 		</div>
 		<div class="form-group" ng-class="validation.project.cssClass">
-			<label for="project">Progetto</label>
-			<select class="form-control" id="project" placeholder="Progetto" ng-model="bug.project" ng-options="project.name for project in projects" tooltip="{{validation.project.message}}">
-				<option value=""></option>
-			</select>
+			<label for="project" class="col-sm-2">Progetto</label>
+			<div class="col-sm-10">
+				<select class="form-control" id="project" placeholder="Progetto" ng-model="bug.project" ng-options="project.name for project in projects" tooltip="{{validation.project.message}}">
+					<option value=""></option>
+				</select>
+			</div>
 		</div>
-		<div class="form-group" ng-class="validation.project.cssClass">
-			<label for="user">Utente</label>
-			<select class="form-control" id="user" placeholder="Utente assegnatario" ng-model="bug.user" ng-options="(user.name + ' ' + user.surname) for user in users" tooltip="{{validation.user.message}}">
-				<option value=""></option>
-			</select>
+		<div class="form-group" ng-class="validation.user.cssClass">
+			<label for="user" class="col-sm-2">Utente</label>
+			<div class="col-sm-10">
+				<select class="form-control" id="user" placeholder="Utente assegnatario" ng-model="bug.user" ng-options="(user.name + ' ' + user.surname) for user in users" tooltip="{{validation.user.message}}">
+					<option value=""></option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group" ng-class="validation.status.cssClass">
+			<label for="status" class="col-sm-2">Stato</label>
+			<div class="col-sm-10">
+				<select class="form-control" id="status" placeholder="Stato del bug" ng-model="bug.status" tooltip="{{validation.status.message}}">
+					<option value=""></option>
+					<option value="OPEN">Aperto</option>
+					<option value="FIXED">Risolto</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group" ng-class="validation.date.cssClass">
+			<label for="date" class="col-sm-2">Data</label>
+			<div class="col-sm-10">
+				<p class="input-group">
+				<input type="text" class="form-control" id="date" placeholder="Data" ng-model="bug.date" datepicker-popup="dd/MM/yyyy" is-open="datePickerOpened">
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="openDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
+			</div>
 		</div>
 	</form>
 </div>

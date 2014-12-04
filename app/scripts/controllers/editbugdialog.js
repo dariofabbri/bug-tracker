@@ -17,6 +17,8 @@ angular.module('bugTrackerApp')
 
 		$scope.isNew = isNew;
 
+		$scope.datePickerOpened = false;
+
 		$scope.bug = bug ? 
 			angular.copy(bug) : 
 			{
@@ -25,8 +27,16 @@ angular.module('bugTrackerApp')
 				description: '',
 				project: null,
 				user: null,
-				status: 'OPEN'
+				status: 'OPEN',
+				date: null
 			};
+
+		$scope.openDatePicker = function($event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+
+			$scope.datePickerOpened = true;
+		};
 
 		var validate = function () {
 
