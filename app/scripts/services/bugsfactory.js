@@ -75,6 +75,31 @@ angular.module('bugTrackerApp')
 				}
 
 				serialize();
+			},
+
+			generateNextId: function (project) {
+
+				// Filter all bugs attached to the specified project.
+				//
+				var filtered = _.filter(bugs, function (bug) {
+					return bug.project.code === project.code;
+				});
+
+				// Extract numeric parts of the ids.
+				//
+				var numbers = _.map(filtered, function (bug) {
+					
+					var re = /[^-]+-(\d+)/g;
+					var match = re.exec(bug.id);
+					return parseInt(match[1]);
+				});
+
+				// Find the biggest numeric part of the ids.
+				//
+				var max = _.max(numbers);
+
+
+				return project.code + '-' + (max === -Infinity ? 1 : max + 1);
 			}
     };
   }]);
