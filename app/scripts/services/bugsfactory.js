@@ -30,28 +30,28 @@ angular.module('bugTrackerApp')
 				return bugs;
       },
 
-      search: function (id, description, project, user) {
+      search: function (filter) {
 
 				return _.filter(bugs, function (bug) {
 
 					var matches = true;
 
-					if(id) {
-						matches = matches && bug.id && bug.id.toLowerCase().indexOf(id.toLowerCase()) !== -1;
+					if(filter.id) {
+						matches = matches && bug.id && bug.id.toLowerCase().indexOf(filter.id.toLowerCase()) !== -1;
 					}
 
-					if(description) {
+					if(filter.description) {
 						matches = matches &&
-							(bug.subject && bug.subject.toLowerCase().indexOf(description.toLowerCase()) !== -1) || 
-							(bug.description && bug.description.toLowerCase().indexOf(description.toLowerCase()) !== -1);
+							(bug.subject && bug.subject.toLowerCase().indexOf(filter.description.toLowerCase()) !== -1) || 
+							(bug.description && bug.description.toLowerCase().indexOf(filter.description.toLowerCase()) !== -1);
 					}
 
-					if(project) {
-						matches = matches && bug.project && bug.project.code && bug.project.code.toLowerCase().indexOf(project.toLowerCase()) !== -1;
+					if(filter.project) {
+						matches = matches && bug.project && bug.project.code && bug.project.code.toLowerCase().indexOf(filter.project.toLowerCase()) !== -1;
 					}
 
-					if(user) {
-						matches = matches && bug.user && bug.user.alias && bug.user.alias.toLowerCase().indexOf(user.toLowerCase()) !== -1;
+					if(filter.user) {
+						matches = matches && bug.user && bug.user.alias && bug.user.alias.toLowerCase().indexOf(filter.user.toLowerCase()) !== -1;
 					}
 
 					return matches;
