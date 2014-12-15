@@ -25,7 +25,7 @@
 		<div class="form-group" ng-class="validation.project.cssClass">
 			<label for="project" class="col-sm-2">Progetto</label>
 			<div class="col-sm-10">
-				<select class="form-control" id="project" placeholder="Progetto" ng-model="bug.project" ng-options="project.name for project in projects" tooltip="{{validation.project.message}}">
+				<select class="form-control" id="project" placeholder="Progetto" ng-model="bug.project" ng-options="project.name for project in projects track by project.code" tooltip="{{validation.project.message}}">
 					<option value=""></option>
 				</select>
 			</div>
@@ -33,7 +33,7 @@
 		<div class="form-group" ng-class="validation.user.cssClass">
 			<label for="user" class="col-sm-2">Utente</label>
 			<div class="col-sm-10">
-				<select class="form-control" id="user" placeholder="Utente assegnatario" ng-model="bug.user" ng-options="(user.name + ' ' + user.surname) for user in users" tooltip="{{validation.user.message}}">
+				<select class="form-control" id="user" placeholder="Utente assegnatario" ng-model="bug.user" ng-options="(user.name + ' ' + user.surname) for user in users track by user.alias" tooltip="{{validation.user.message}}">
 					<option value=""></option>
 				</select>
 			</div>
@@ -41,10 +41,8 @@
 		<div class="form-group" ng-class="validation.status.cssClass" ng-hide="isNew">
 			<label for="status" class="col-sm-2">Stato</label>
 			<div class="col-sm-10">
-				<select class="form-control" id="status" placeholder="Stato del bug" ng-model="bug.status" tooltip="{{validation.status.message}}">
+				<select class="form-control" id="status" placeholder="Stato del bug" ng-model="bug.status" ng-options="status.value for status in statuses track by status.code" tooltip="{{validation.status.message}}">
 					<option value=""></option>
-					<option value="OPEN">Aperto</option>
-					<option value="FIXED">Risolto</option>
 				</select>
 			</div>
 		</div>

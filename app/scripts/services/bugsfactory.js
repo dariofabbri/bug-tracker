@@ -47,11 +47,11 @@ angular.module('bugTrackerApp')
 					}
 
 					if(filter.project) {
-						matches = matches && bug.project && bug.project.code && bug.project.code.toLowerCase().indexOf(filter.project.toLowerCase()) !== -1;
+						matches = matches && bug.project && bug.project.code && bug.project.code.toLowerCase().indexOf(filter.project.code.toLowerCase()) !== -1;
 					}
 
 					if(filter.user) {
-						matches = matches && bug.user && bug.user.alias && bug.user.alias.toLowerCase().indexOf(filter.user.toLowerCase()) !== -1;
+						matches = matches && bug.user && bug.user.alias && bug.user.alias.toLowerCase().indexOf(filter.user.alias.toLowerCase()) !== -1;
 					}
 
 					return matches;
@@ -69,8 +69,12 @@ angular.module('bugTrackerApp')
 
 				var existing = this.get(bug.id);
 				if(existing) {
+
 					_.extend(existing, bug);
+
 				} else {
+
+					bug.id = this.generateNextId(bug.project);
 					bugs.push(bug);
 				}
 

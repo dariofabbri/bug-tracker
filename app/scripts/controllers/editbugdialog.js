@@ -14,6 +14,13 @@ angular.module('bugTrackerApp')
 
     $scope.users = usersFactory.list();
     $scope.projects = projectsFactory.list();
+		$scope.statuses = [{ 
+			code: 'OPEN',
+			value: 'Aperto'
+		},{
+			code: 'FIXED',
+			value: 'Risolto'
+		}];
 
 		$scope.isNew = isNew;
 
@@ -63,7 +70,6 @@ angular.module('bugTrackerApp')
 				return;
 			}
 
-			$scope.bug.id = bugsFactory.generateNextId($scope.bug.project);
 			bugsFactory.save($scope.bug);
 			$modalInstance.close();
 		};
