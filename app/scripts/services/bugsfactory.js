@@ -75,6 +75,7 @@ angular.module('bugTrackerApp')
 				} else {
 
 					bug.id = this.generateNextId(bug.project);
+					bug.status = {code: 'OPEN', value: 'Aperto'};
 					bugs.push(bug);
 				}
 
