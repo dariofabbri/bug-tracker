@@ -1,12 +1,12 @@
 <div class="modal-header">
-	<h3 class="modal-title">{{isNew ? 'Nuovo utente' : 'Dettaglio utente'}}</h3>
+	<h3 class="modal-title">{{isNew ? 'Nuovo utente' : 'Dettaglio utente'}} <small>Focus not managed</small></h3>
 </div>
 <div class="modal-body">
 	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert(alert.id)">{{alert.msg}}</alert>
 	<form role="form">
 		<div class="form-group" ng-class="validation.alias.cssClass">
 			<label for="alias">Alias</label>
-			<input type="text" class="form-control" id="alias" placeholder="Alias univoco" autofocus ng-model="user.alias" tooltip="{{validation.alias.message}}" autofocus>
+			<input type="text" class="form-control" id="alias" placeholder="Alias univoco" ng-model="user.alias" tooltip="{{validation.alias.message}}">
 		</div>
 		<div class="form-group" ng-class="validation.name.cssClass">
 			<label for="name">Nome</label>

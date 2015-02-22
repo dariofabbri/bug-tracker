@@ -8,7 +8,7 @@
  * Controller of the bugTrackerApp
  */
 angular.module('bugTrackerApp')
-  .controller('ProjectsCtrl', function ($scope, projectsFactory, $modal) {
+  .controller('ProjectsCtrl', function ($scope, projectsFactory, $modal, $timeout) {
 
     $scope.projects = projectsFactory.list();
 
@@ -26,6 +26,16 @@ angular.module('bugTrackerApp')
 						return !project;
 					}
 				}
+			});
+
+			modalInstance.opened.then(function () {
+				$timeout(function () {
+					var elem = angular.element(document.querySelector('input[autofocus]'));
+					console.log(elem);
+					if(elem) {
+						elem.focus();
+					}
+				}, 500);
 			});
 
 			modalInstance.result.then(function () {
