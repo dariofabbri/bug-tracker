@@ -3,19 +3,19 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="id">Id</label>
 			<div class="col-sm-10">	
-				<input type="text" class="form-control" id="id" ng-model="filter.id" ng-change="applyFilter()" autofocus>
+				<input type="text" class="form-control" id="id" data-ng-model="filter.id" data-ng-change="applyFilter()" autofocus>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="description">Descrizione</label>
 			<div class="col-sm-10">	
-				<input type="text" class="form-control" id="description" ng-model="filter.description" ng-change="applyFilter()">
+				<input type="text" class="form-control" id="description" data-ng-model="filter.description" data-ng-change="applyFilter()">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="project">Progetto</label>
 			<div class="col-sm-10">	
-				<select class="form-control" id="project" ng-model="filter.project" ng-options="project.name for project in projects" ng-change="applyFilter()">
+				<select class="form-control" id="project" data-ng-model="filter.project" data-ng-options="project.name for project in projects" data-ng-change="applyFilter()">
 					<option value=""></option>
 				</select>
 			</div>
@@ -23,14 +23,14 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="user">Utente</label>
 			<div class="col-sm-10">	
-				<select class="form-control" id="user" ng-model="filter.user" ng-options="(user.name + ' ' + user.surname) for user in users" ng-change="applyFilter()">
+				<select class="form-control" id="user" data-ng-model="filter.user" data-ng-options="(user.name + ' ' + user.surname) for user in users" data-ng-change="applyFilter()">
 					<option value=""></option>
 				</select>
 			</div>
 		</div>
 	</form>
 	<div class="modal-footer">
-		<button class="btn btn-default" ng-click="clearFilter()">Rimuovi filtri</button>
+		<button class="btn btn-default" data-ng-click="clearFilter()">Rimuovi filtri</button>
 	</div>
 </div>
 
@@ -49,7 +49,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="bug in bugs">
+			<tr data-ng-repeat="bug in bugs">
 				<td>{{$index + 1}}</td>
 				<td>{{bug.id}}</td>
 				<td>{{bug.subject}}</td>
@@ -58,11 +58,11 @@
 				<td>{{bug.status.value}}</td>
 				<td>{{bug.date | date:'dd/MM/yyyy'}}</td>
 				<td class="text-right">
-					<button ng-click="openEditDialog(bug)" type="button" aria-label="Modifica bug" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-edit"></span></button>
+					<button data-ng-click="openEditDialog(bug)" type="button" aria-label="Modifica bug" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-edit"></span></button>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 
-	<button ng-click="openEditDialog()" type="button" class="btn btn-primary pull-right">Nuovo bug</button>
+	<button data-ng-click="openEditDialog()" type="button" class="btn btn-primary pull-right">Nuovo bug</button>
 </div>

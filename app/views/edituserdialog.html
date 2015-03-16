@@ -2,27 +2,27 @@
 	<h3 class="modal-title">{{isNew ? 'Nuovo utente' : 'Dettaglio utente'}} <small>Focus not managed</small></h3>
 </div>
 <div class="modal-body">
-	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert(alert.id)">{{alert.msg}}</alert>
+	<alert data-ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert(alert.id)">{{alert.msg}}</alert>
 	<form role="form">
-		<div class="form-group" ng-class="validation.alias.cssClass">
+		<div class="form-group" data-ng-class="validation.alias.cssClass">
 			<label for="alias">Alias</label>
-			<input type="text" class="form-control" id="alias" placeholder="Alias univoco" ng-model="user.alias" tooltip="{{validation.alias.message}}">
+			<input type="text" class="form-control" id="alias" placeholder="Alias univoco" data-ng-model="user.alias" tooltip="{{validation.alias.message}}">
 		</div>
-		<div class="form-group" ng-class="validation.name.cssClass">
+		<div class="form-group" data-ng-class="validation.name.cssClass">
 			<label for="name">Nome</label>
-			<input type="text" class="form-control" id="name" placeholder="Nome dell'utente" ng-model="user.name" tooltip="{{validation.name.message}}">
+			<input type="text" class="form-control" id="name" placeholder="Nome dell'utente" data-ng-model="user.name" tooltip="{{validation.name.message}}">
 		</div>
-		<div class="form-group" ng-class="validation.surname.cssClass">
+		<div class="form-group" data-ng-class="validation.surname.cssClass">
 			<label for="surname">Cognome</label>
-			<input type="text" class="form-control" id="surname" placeholder="Cognome dell'utente" ng-model="user.surname" tooltip="{{validation.surname.message}}">
+			<input type="text" class="form-control" id="surname" placeholder="Cognome dell'utente" data-ng-model="user.surname" tooltip="{{validation.surname.message}}">
 		</div>
-		<div class="form-group" ng-class="validation.email.cssClass">
+		<div class="form-group" data-ng-class="validation.email.cssClass">
 			<label for="email">Email</label>
-			<input type="email" class="form-control" id="email" placeholder="Email dell'utente" ng-model="user.email" tooltip="{{validation.email.message}}">
+			<input type="email" class="form-control" id="email" placeholder="Email dell'utente" data-ng-model="user.email" tooltip="{{validation.email.message}}">
 		</div>
 	</form>
 </div>
 <div class="modal-footer">
-	<button class="btn btn-default" ng-click="cancel()">Annulla</button>
-	<button class="btn btn-primary" ng-click="ok()">OK</button>
+	<button class="btn btn-default" data-ng-click="cancel()">Annulla</button>
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
 </div>

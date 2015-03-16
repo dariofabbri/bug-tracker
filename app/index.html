@@ -15,26 +15,26 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="bugTrackerApp">
+  <body data-ng-app="bugTrackerApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header" ng-controller="HeaderCtrl">
+      <div class="header" data-ng-controller="HeaderCtrl">
         <ul class="nav nav-pills pull-right">
-					<li ng-class="{ active: isTabActive('/main') }"><a ng-href="/#main">Home</a></li>
-					<li ng-class="{ active: isTabActive('/projects') }"><a ng-href="/#projects">Progetti</a></li>
-					<li ng-class="{ active: isTabActive('/users') }"><a ng-href="/#users">Utenti</a></li>
-					<li ng-class="{ active: isTabActive('/bugs') }"><a ng-href="/#bugs">Bug</a></li>
-					<li ng-class="{ active: isTabActive('/charts') }"><a ng-href="/#charts">Grafici</a></li>
-					<li ng-class="{ active: isTabActive('/about') }"><a ng-href="/#about">About</a></li>
+					<li data-ng-class="{ active: isTabActive('/main') }"><a data-ng-href="/#main">Home</a></li>
+					<li data-ng-class="{ active: isTabActive('/projects') }"><a data-ng-href="/#projects">Progetti</a></li>
+					<li data-ng-class="{ active: isTabActive('/users') }"><a data-ng-href="/#users">Utenti</a></li>
+					<li data-ng-class="{ active: isTabActive('/bugs') }"><a data-ng-href="/#bugs">Bug</a></li>
+					<li data-ng-class="{ active: isTabActive('/charts') }"><a data-ng-href="/#charts">Grafici</a></li>
+					<li data-ng-class="{ active: isTabActive('/about') }"><a data-ng-href="/#about">About</a></li>
         </ul>
         <h3 class="text-muted">Bug tracker</h3>
       </div>
 
-      <div ng-view="" class="fade"></div>
+      <div data-ng-view="" class="fade"></div>
 
 			<!--
       <div class="footer">

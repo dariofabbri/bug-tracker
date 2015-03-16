@@ -2,23 +2,23 @@
 	<h3 class="modal-title">{{isNew ? 'Nuovo progetto' : 'Dettaglio progetto'}} <small>Forced focus</small></h3>
 </div>
 <div class="modal-body">
-	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert(alert.id)">{{alert.msg}}</alert>
+	<alert data-ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert(alert.id)">{{alert.msg}}</alert>
 	<form role="form">
-		<div class="form-group" ng-class="validation.code.cssClass">
+		<div class="form-group" data-ng-class="validation.code.cssClass">
 			<label for="code">Codice</label>
-			<input type="text" class="form-control" id="code" placeholder="Inserire un codice univoco per il progetto" autofocus ng-model="project.code" tooltip="{{validation.code.message}}" autofocus>
+			<input type="text" class="form-control" id="code" placeholder="Inserire un codice univoco per il progetto" autofocus data-ng-model="project.code" tooltip="{{validation.code.message}}" autofocus>
 		</div>
-		<div class="form-group" ng-class="validation.name.cssClass">
+		<div class="form-group" data-ng-class="validation.name.cssClass">
 			<label for="name">Nome</label>
-			<input type="text" class="form-control" id="name" placeholder="Nome del progetto" ng-model="project.name" tooltip="{{validation.name.message}}">
+			<input type="text" class="form-control" id="name" placeholder="Nome del progetto" data-ng-model="project.name" tooltip="{{validation.name.message}}">
 		</div>
-		<div class="form-group" ng-class="validation.description.cssClass">
+		<div class="form-group" data-ng-class="validation.description.cssClass">
 			<label for="description">Descrizione</label>
-			<input type="text" class="form-control" id="description" placeholder="Descrizione del progetto" ng-model="project.description" tooltip="{{validation.description.message}}">
+			<input type="text" class="form-control" id="description" placeholder="Descrizione del progetto" data-ng-model="project.description" tooltip="{{validation.description.message}}">
 		</div>
 	</form>
 </div>
 <div class="modal-footer">
-	<button class="btn btn-default" ng-click="cancel()">Annulla</button>
-	<button class="btn btn-primary" ng-click="ok()">OK</button>
+	<button class="btn btn-default" data-ng-click="cancel()">Annulla</button>
+	<button class="btn btn-primary" data-ng-click="ok()">OK</button>
 </div>
